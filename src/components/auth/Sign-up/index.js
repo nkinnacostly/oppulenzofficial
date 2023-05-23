@@ -10,7 +10,7 @@ import Link from 'next/link'
 function SignUp() {
   return (
     <div className='w-full h-[100vh] '>
-      <div className='grid justify-center w-full h-full grid-cols-2 '>
+      <div className='grid justify-center w-full h-full grid-cols-1 lg:grid-cols-2 '>
         <div className='w-full h-full bg-[#6C63FF]'>
           <div className='flex items-center justify-start'>
             <div>
@@ -50,7 +50,7 @@ function SignUp() {
               <div>
                 <p className='mb-1 text-sm text-slate-500'>Email</p>
                 <input
-                  className='border-2 w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
+                  className='border-2 w-[280px] lg:w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
                   type='email'
                   name=''
                   id=''
@@ -61,7 +61,7 @@ function SignUp() {
               <div>
                 <p className='mb-1 text-sm text-slate-500'>Full Name</p>
                 <input
-                  className='border-2 w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
+                  className='border-2 w-[280px] lg:w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
                   type='text'
                   name=''
                   id=''
@@ -72,7 +72,7 @@ function SignUp() {
               <div>
                 <p className='mb-1 text-sm text-slate-500'>Phone Number</p>
                 <input
-                  className='border-2 w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
+                  className='border-2 w-[280px] lg:w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
                   type='number'
                   name=''
                   id=''
@@ -83,7 +83,7 @@ function SignUp() {
               <div>
                 <p className='mb-1 text-sm text-slate-500'>Password</p>
                 <input
-                  className='border-2 w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
+                  className='border-2 w-[280px] lg:w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
                   type='password'
                   name=''
                   id=''
@@ -93,7 +93,7 @@ function SignUp() {
               </div>
             </div>
             <div className='flex flex-col items-center justify-center w-full'>
-              <button className='w-[326px] h-[46px] bg-[#D0D0D0] rounded-[8px] text-white mb-2'>
+              <button className='w-[280px] lg:w-[326px] h-[46px] bg-[#D0D0D0] rounded-[8px] text-white mb-2'>
                 Submit
               </button>
               <p className='text-sm text-slate-500'>
