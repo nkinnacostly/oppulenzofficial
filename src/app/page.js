@@ -1,9 +1,9 @@
-import Index from '@/components/auth/Login'
+import Login from '@/components/auth/Login'
 
 export default function Home() {
   return (
     <>
-      <Index />
+      <Login />
     </>
   )
 }

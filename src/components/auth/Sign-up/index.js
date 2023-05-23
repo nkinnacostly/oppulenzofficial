@@ -7,7 +7,7 @@ import Dot1 from '../../../../assets/png/4.png'
 import Dot2 from '../../../../assets/png/5.png'
 import Link from 'next/link'
 
-function Index() {
+function SignUp() {
   return (
     <div className='w-full h-[100vh] '>
       <div className='grid justify-center w-full h-full grid-cols-2 '>
@@ -51,20 +51,44 @@ function Index() {
                 <p className='mb-1 text-sm text-slate-500'>Email</p>
                 <input
                   className='border-2 w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
-                  type='text'
+                  type='email'
                   name=''
                   id=''
                   placeholder='Enter your Email'
+                  required
                 />
               </div>
               <div>
-                <p className='mb-1 text-sm text-slate-500'>Password</p>
+                <p className='mb-1 text-sm text-slate-500'>Full Name</p>
                 <input
                   className='border-2 w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
                   type='text'
                   name=''
                   id=''
                   placeholder='Enter your Password'
+                  required
+                />
+              </div>
+              <div>
+                <p className='mb-1 text-sm text-slate-500'>Phone Number</p>
+                <input
+                  className='border-2 w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
+                  type='number'
+                  name=''
+                  id=''
+                  placeholder='Enter your Phone Number'
+                  required
+                />
+              </div>
+              <div>
+                <p className='mb-1 text-sm text-slate-500'>Password</p>
+                <input
+                  className='border-2 w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
+                  type='password'
+                  name=''
+                  id=''
+                  placeholder='Enter your Password'
+                  required
                 />
               </div>
             </div>
@@ -73,9 +97,9 @@ function Index() {
                 Submit
               </button>
               <p className='text-sm text-slate-500'>
-                Not Registered ?
-                <Link href='/sign-up' className='pl-2 text-[#6C63FF]'>
-                  Sign Up
+                Have an account ?
+                <Link href={'/'} className='pl-2 text-[#6C63FF]'>
+                  Login
                 </Link>
               </p>
             </div>
@@ -90,4 +114,4 @@ function Index() {
   )
 }
 
-export default Index
+export default SignUp
