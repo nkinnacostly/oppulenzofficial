@@ -11,7 +11,7 @@ function Index() {
   return (
     <div className='w-full h-[100vh] '>
       <div className='grid justify-center w-full h-full grid-cols-1 lg:grid-cols-2 '>
-        <div className='w-full h-full bg-[#6C63FF] hidden lg:block'>
+        <div className='w-full h-full bg-[#fecc09] hidden lg:block'>
           <div className='flex items-center justify-start'>
             <div>
               <Image src={Human1} height={230} width={230} alt='' />
@@ -40,7 +40,7 @@ function Index() {
             </div>
           </div>
         </div>
-        <div className='w-full h-full'>
+        <div className='w-full h-full '>
           <div className='flex justify-between w-full h-[90px] '>
             <Image src={Dot1} alt='' height={100} width={100} />
             <Image src={Dot2} alt='' height={100} width={100} />
