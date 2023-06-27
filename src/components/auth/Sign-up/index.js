@@ -37,10 +37,7 @@ function SignUp() {
     console.log(response)
 
     if (response.token_type === 'Bearer') {
-      toaster(
-        'User Creaed Sucessfully, Check your mail to verify your account',
-        'success'
-      )
+      toaster('Sucessful, Check your mail to verify your account', 'success')
       router.push('/')
 
       setIsLoading(false)
@@ -51,6 +48,7 @@ function SignUp() {
     if (response.status === 400 || 401) {
       toaster(`${response?.error?.email[0]}`, 'error')
       toaster(`${response?.error?.phone[0]}`, 'error')
+      toaster(`${response?.error?.password[0]}`, 'error')
       // console.log(response.response.data.email)
     }
   }

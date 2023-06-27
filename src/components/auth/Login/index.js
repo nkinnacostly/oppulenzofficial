@@ -36,7 +36,7 @@ function Index() {
     console.log(response)
 
     if (response.user.verification_status === 'NO') {
-      toaster('Please Check your mail to verify your account', 'error')
+      toaster('Account Pending Verification', 'success')
       setIsLoading(false)
       return
     } else {
