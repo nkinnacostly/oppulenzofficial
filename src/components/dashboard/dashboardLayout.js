@@ -109,7 +109,7 @@ function DashboardLayout({ children }) {
         </div>
         <div></div>
       </div>
-      <div className='w-[calc(100%-220px)] absolute right-0 h-full '>
+      <div className='w-[calc(100%-220px)] fixed left-[220px] top-0 h-full '>
         <div className='h-[66px] flex justify-between items-center p-3 bg-white rounded-r-xl'>
           <div>
             <div className='relative'>

@@ -34,3 +34,16 @@ body {
   background-repeat: no-repeat;
   border: 2px solid blue;
 }
+
+.rotate {
+  animation: rotate 0.5s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

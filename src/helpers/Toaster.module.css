@@ -1,0 +1,25 @@
+.toaster {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 9999;
+}
+
+.toaster.visible {
+  opacity: 1;
+}
+
+.toaster.success {
+  background-color: #00b894;
+}
+
+.toaster.error {
+  background-color: #d63031;
+}

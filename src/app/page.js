@@ -1,3 +1,4 @@
+'use client'
 import Login from '@/components/auth/Login'
 // import '@feather-icons/dist/feather.css'
 
