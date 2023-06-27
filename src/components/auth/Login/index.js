@@ -35,7 +35,7 @@ function Index() {
     const response = await makeApiCall('/login', 'POST', signupData)
     console.log(response)
 
-    if (response.user.email_verified_at === null) {
+    if (response.user.verification_status === 'NO') {
       toaster('Please Check your mail to verify your account', 'error')
       setIsLoading(false)
       return
