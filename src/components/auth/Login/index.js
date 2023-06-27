@@ -119,6 +119,7 @@ function Index() {
               <button
                 className='w-[280px] lg:w-[326px] h-[46px] bg-[#6C63FF] rounded-[8px] text-white mb-2'
                 onClick={handleSubmit}
+                disabled={isLoading}
               >
                 {isLoading ? (
                   <div className='flex items-center justify-center'>
