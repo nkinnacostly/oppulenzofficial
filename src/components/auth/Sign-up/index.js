@@ -111,7 +111,7 @@ function SignUp() {
                   type='text'
                   name='name'
                   id=''
-                  placeholder='Enter your Password'
+                  placeholder='Enter your Full Name'
                   required
                   onChange={handleUserInputs}
                 />
