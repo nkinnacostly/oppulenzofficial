@@ -33,7 +33,7 @@ function Index() {
     // e.preventDefault()
     setIsLoading(true)
     const response = await makeApiCall('/login', 'POST', signupData)
-    console.log(response)
+    // console.log(response)
 
     if (response.user.verification_status === 'NO') {
       toaster('Account Pending Verification', 'success')
