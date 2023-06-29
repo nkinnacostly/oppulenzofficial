@@ -2,10 +2,22 @@ import React, { useEffect, useState } from 'react'
 import Plant from '../../../../assets/png/plant.jpeg'
 import { makeApiCall } from '../../../../lib/api'
 import { IMAGE_BASE_URL } from '../../../../constant'
+import Modal from '@/helpers/modal'
 
 function Invest() {
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalData, setModalData] = useState({})
+
+  const handleOpenModal = (item) => {
+    setModalData(item)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+  }
   const getProducts = async () => {
     // e.preventDefault()
     setIsLoading(true)
@@ -28,8 +40,17 @@ function Invest() {
           </div>
         ) : (
           <div className='grid grid-cols-3 gap-4 '>
+            <Modal
+              isOpen={isModalOpen}
+              onClose={handleCloseModal}
+              data={modalData}
+            />
             {products.map((prod, index) => (
-              <div key={index} className='w-[300px] h-[360px]'>
+              <div
+                key={index}
+                className='w-[300px] h-[360px] cursor-pointer'
+                onClick={() => handleOpenModal(prod)}
+              >
                 <div
                   className=''
                   style={{

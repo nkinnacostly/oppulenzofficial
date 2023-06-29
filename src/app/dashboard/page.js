@@ -65,7 +65,10 @@ function Index() {
             ) : (
               <div className='grid grid-cols-3 gap-4 '>
                 {products.slice(0, 3).map((prod, index) => (
-                  <div key={index} className='w-[300px] h-[360px]'>
+                  <div
+                    key={index}
+                    className='w-[300px] h-[360px] cursor-pointer'
+                  >
                     <div
                       className=''
                       style={{
