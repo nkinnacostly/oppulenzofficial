@@ -43,10 +43,10 @@ function Index() {
   return (
     <div>
       <DashboardLayout>
-        <div className='w-ful  h-full flex items-center  flex-col'>
+        <div className='flex flex-col items-center h-full w-ful'>
           <div className='h-[350px] w-[80%] flex items-center justify-center  mt-2'>
             <iframe
-              className='h-full w-full'
+              className='w-full h-full'
               src='https://www.youtube.com/embed/yOJ4WdUxSyo'
               title='Fivio Foreign - God Did Freestyle (Official Video)'
               frameborder='0'
@@ -54,7 +54,7 @@ function Index() {
               allowfullscreen
             ></iframe>
           </div>
-          <h1 className='uppercase font-semibold text-xl mt-8 mb-8'>
+          <h1 className='mt-8 mb-8 text-xl font-semibold uppercase'>
             Products
           </h1>
           <div className='h-[calc(100%-350px)]  w-full overflow-scroll '>
@@ -64,7 +64,7 @@ function Index() {
               </div>
             ) : (
               <div className='grid grid-cols-3 gap-4 '>
-                {products.slice(0, 3).map((prod, index) => (
+                {products?.slice(0, 3)?.map((prod, index) => (
                   <div
                     key={index}
                     className='w-[300px] h-[360px] cursor-pointer'

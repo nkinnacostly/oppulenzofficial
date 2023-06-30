@@ -11,10 +11,14 @@ import NotificationIcon from '../../../assets/svg/notification.svg'
 import { ReactComponent as SearchIcon } from '../../../assets/svg/search.svg'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 function DashboardLayout({ children }) {
   const [isActive, setIsActive] = useState('dashboard')
   const router = useRouter()
+  const pathname = usePathname()
+  // console.log(pathname, 'URL')
+
   const handleClick = (index, path) => {
     setIsActive(index)
     router.push(path)
@@ -37,37 +41,37 @@ function DashboardLayout({ children }) {
       index: 2,
       icon: <UserIcon />,
       name: `Refer a friend`,
-      path: `dashboard/profile`,
+      path: `/dashboard/profile`,
     },
     {
       index: 3,
       icon: <InvestIcon />,
       name: `Product`,
-      path: `dashboard/invest`,
+      path: `/dashboard/invest`,
     },
     {
       index: 4,
       icon: <SettingsIcon />,
       name: `Settings`,
-      path: `dashboard/settings`,
+      path: `/dashboard/settings`,
     },
     {
       index: 5,
       icon: <UserIcon />,
       name: `Team`,
-      path: `dashboard/profile`,
+      path: `/dashboard/profile`,
     },
     {
       index: 6,
       icon: <SettingsIcon />,
       name: `Service`,
-      path: `dashboard/profile`,
+      path: `/dashboard/profile`,
     },
     {
       index: 7,
       icon: <SettingsIcon />,
       name: `News flash`,
-      path: `dashboard/profile`,
+      path: `/dashboard/profile`,
     },
   ]
   return (
@@ -76,37 +80,27 @@ function DashboardLayout({ children }) {
         <div className='flex items-center justify-center'>
           <Image src={Logo} alt='' height={50} width={50} />
         </div>
-        <div className='w-full mt-7'>
-          {sideBarLinks.map((links) => (
-            <div
-              key={links.name}
-              className={`flex items-center w-full p-2 mb-4 space-x-1 rounded-md cursor-pointer font-[Manrope] text-[16px] text-[#5F6165] ${
-                isActive === links.index ? 'bg-[#F3F5F8] text-[#2563EB]' : ''
-              } hover:bg-[#F3F5F8]`}
-              onClick={() => {
-                handleClick(links.index, links.path)
-              }}
-            >
-              <Link href={links.path} className='flex items-center space-x-1'>
-                <div
-                // className={`text-[#5F6165] ${
-                //   isActive === links.index ? 'text-[#2563EB]' : ''
-                // }`}
-                >
-                  {links.icon}
-                </div>
-                <div
-                  href={links.path}
-                  // className={` ${
-                  //   isActive === links.index ? 'text-[#2563EB] font-bold' : ''
-                  // }`}
-                >
-                  {links.name}
-                </div>
+        <ul className='w-full mt-7'>
+          {sideBarLinks.map((links, index) => (
+            <li className='block  mb-4 pl-5 h-[40px]' key={index}>
+              <Link
+                href={links.path}
+                className={`flex items-center rounded 
+              text-center cursor-pointer transition-colors  
+              ${
+                pathname === `${links.path}`
+                  ? 'bg-[#021a36] h-full text-white'
+                  : 'bg-white hover:bg-[#dcebf9] h-full'
+              }
+              `}
+              >
+                <span className='inline-block ml-4'>
+                  <h2 className={`capitalize font-[Manrope]`}>{links.name}</h2>
+                </span>
               </Link>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
         <div></div>
       </div>
       <div className='w-[calc(100%-220px)] fixed left-[220px] top-0 h-full '>

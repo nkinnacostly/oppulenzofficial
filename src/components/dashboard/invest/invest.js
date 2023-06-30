@@ -45,7 +45,7 @@ function Invest() {
               onClose={handleCloseModal}
               data={modalData}
             />
-            {products.map((prod, index) => (
+            {products?.map((prod, index) => (
               <div
                 key={index}
                 className='w-[300px] h-[360px] cursor-pointer'
