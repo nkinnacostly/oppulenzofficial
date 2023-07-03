@@ -1,15 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ImageUploading from 'react-images-uploading'
 import Upload from '../../assets/svg/upload.svg'
 import Image from 'next/image'
+import toaster from './toaster'
+import Cookies from 'js-cookie'
+import SmallLoader from './Spinner'
+import { makeApiCall } from '../../lib/api'
 
 function WalletAdress({ setShowWallet, data }) {
+  const userDetails = Cookies.get('user_details')
+  const user = userDetails ? JSON.parse(userDetails) : null
+  const [isLoading, setIsLoading] = useState(false)
+  const [receipt, setReceipt] = useState({
+    name: user?.user?.name,
+    receipt: '',
+  })
+  //   console.log(user.user)
   const [images, setImages] = React.useState([])
-  const maxNumber = 69
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
     console.log(imageList, addUpdateIndex)
     setImages(imageList)
+    setReceipt({
+      ...receipt,
+      receipt: imageList[0].file,
+    })
+  }
+
+  const maxNumber = 69
+  console.log(receipt, 'This is receipt')
+  const handleSubmit = async () => {
+    // e.preventDefault()
+    setIsLoading(true)
+    const response = await makeApiCall(
+      '/paymentReceipt',
+      'POST',
+      receipt,
+      'multipart/form-data'
+    )
+    console.log(response)
+
+    if (response.status === 200) {
+      setIsLoading(false)
+      toaster(`${response.message}`, 'success')
+      setImages([])
+      return
+    }
+
+    if (response.status === 400 || 422) {
+      toaster(`${response?.message}`, 'error')
+      setIsLoading(false)
+
+      // console.log(response.response.data.email)
+    }
   }
 
   return (
@@ -99,6 +142,21 @@ function WalletAdress({ setShowWallet, data }) {
               </div>
             )}
           </ImageUploading>
+        </div>
+        <div className='flex flex-col items-center justify-center w-full mt-4'>
+          <button
+            className='w-[280px] lg:w-[326px] h-[46px] bg-[#021a36] rounded-[8px] text-white mb-2'
+            onClick={handleSubmit}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <div className='flex items-center justify-center'>
+                <SmallLoader size={20} thickness={2} color='#fff' />
+              </div>
+            ) : (
+              'Submit'
+            )}
+          </button>
         </div>
       </div>
     </div>
