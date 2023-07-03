@@ -1,8 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { IMAGE_BASE_URL } from '../../constant'
+import WalletAdress from './walletAdress'
 
 const Modal = ({ isOpen, onClose, data }) => {
+  const [showwallet, setShowWallet] = useState(false)
   const modalRef = useRef(null)
 
   useEffect(() => {
@@ -61,52 +63,55 @@ const Modal = ({ isOpen, onClose, data }) => {
             exit='hidden'
             variants={modalContentVariants}
           >
-            <div className='flex items-center justify-center w-full flex-col'>
-              <motion.div
-                className=''
-                style={{
-                  backgroundImage: `url(${IMAGE_BASE_URL}/${data.image})`,
-                  width: '100%',
-                  height: '200px',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              ></motion.div>
-              <motion.div
-                className='h-[calc(100%-200px)] p-2 bg-[#021a36] text-white'
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
-                <motion.p className='text-sm font-[Manrope]'>
-                  {data.description}
-                </motion.p>
+            {showwallet ? (
+              <>
+                <WalletAdress setShowWallet={setShowWallet} data={data} />
+              </>
+            ) : (
+              <div className='flex items-center justify-center w-full flex-col'>
                 <motion.div
-                  className='mt-2 font-[Manrope] font-bold'
+                  className=''
+                  style={{
+                    backgroundImage: `url(${IMAGE_BASE_URL}/${data.image})`,
+                    width: '100%',
+                    height: '200px',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                ></motion.div>
+                <motion.div
+                  className='h-[calc(100%-200px)] p-2 bg-[#021a36] text-white'
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
-                  ₦ {data.ammount}
+                  <motion.p className='text-sm font-[Manrope]'>
+                    {data.description}
+                  </motion.p>
+                  <motion.div
+                    className='mt-2 font-[Manrope] font-bold'
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  >
+                    ₦ {data.ammount}
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            </div>
+              </div>
+            )}
+
             <div className='flex items-center justify-center mt-4'>
-              <button
-                className='w-[280px] lg:w-[326px] h-[46px] bg-[#021a36] rounded-[8px] text-white mb-2'
-                //     onClick={handleSubmit}
-                //     disabled={isLoading}
-              >
-                {/* {isLoading ? (
-                <div className='flex items-center justify-center'>
-                  <SmallLoader size={20} thickness={2} color='#fff' />
-                </div>
+              {showwallet ? (
+                ''
               ) : (
-                'Submit'
-              )} */}
-                Invest
-              </button>
+                <button
+                  className='w-[280px] lg:w-[326px] h-[46px] bg-[#021a36] rounded-[8px] text-white mb-2'
+                  onClick={() => setShowWallet(true)}
+                >
+                  Invest
+                </button>
+              )}
             </div>
           </motion.div>
         </motion.div>
