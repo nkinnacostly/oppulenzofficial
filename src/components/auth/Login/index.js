@@ -47,9 +47,9 @@ function Index() {
       router.push('/dashboard')
     }
 
-    if (response.status === 400 || 401) {
-      toaster(`${response?.error?.email[0]}`, 'error')
-      toaster(`${response?.error?.phone[0]}`, 'error')
+    if (response.status === 401) {
+      toaster(`${response?.error}`, 'error')
+      toaster(`${response?.error}`, 'error')
       // console.log(response.response.data.email)
     }
   }
