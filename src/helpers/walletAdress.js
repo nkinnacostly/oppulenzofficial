@@ -23,7 +23,7 @@ function WalletAdress({ setShowWallet, data }) {
     setImages(imageList)
     setReceipt({
       ...receipt,
-      receipt: imageList[0].file,
+      receipt: imageList[0]?.file,
     })
   }
 
