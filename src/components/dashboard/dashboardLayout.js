@@ -33,27 +33,35 @@ function DashboardLayout({ children }) {
     },
     {
       index: 1,
-      icon: <Assetsicon />,
-      name: `About`,
-      path: `/dashboard/assets`,
+      icon: <InvestIcon />,
+      name: `Product`,
+      path: `/dashboard/invest`,
     },
+    {
+      index: 2,
+      icon: <SettingsIcon />,
+      name: `News flash`,
+      path: `/dashboard/profile`,
+    },
+
     // {
     //   index: 2,
     //   icon: <UserIcon />,
     //   name: `Refer a friend`,
     //   path: `/dashboard/profile`,
     // },
+
     {
       index: 3,
-      icon: <InvestIcon />,
-      name: `Product`,
-      path: `/dashboard/invest`,
-    },
-    {
-      index: 4,
       icon: <SettingsIcon />,
       name: `Settings`,
       path: `/dashboard/settings`,
+    },
+    {
+      index: 4,
+      icon: <Assetsicon />,
+      name: `About`,
+      path: `/dashboard/assets`,
     },
     // {
     //   index: 5,
@@ -67,14 +75,9 @@ function DashboardLayout({ children }) {
     //   name: `Service`,
     //   path: `/dashboard/profile`,
     // },
+
     {
-      index: 7,
-      icon: <SettingsIcon />,
-      name: `News flash`,
-      path: `/dashboard/profile`,
-    },
-    {
-      index: 8,
+      index: 5,
       icon: <SettingsIcon />,
       name: `Contact Us`,
       path: `/dashboard/contact`,

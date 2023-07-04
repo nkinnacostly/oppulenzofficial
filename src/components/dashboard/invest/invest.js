@@ -78,8 +78,8 @@ function Invest() {
                     <p className='text-sm font-[Manrope]'>{prod.interest}</p>
                   </div>
                   <div className='flex items-center justify-between'>
-                    <p className='text-sm font-[Manrope]'>Sector</p>
-                    <p className='text-sm font-[Manrope] capitalize'>
+                    {/* <p className='text-sm font-[Manrope]'>Sector</p> */}
+                    <p className='text-sm font-[Manrope] uppercase font-bold'>
                       {prod.product_name}
                     </p>
                   </div>
