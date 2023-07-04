@@ -98,7 +98,7 @@ function Index() {
                   className='border-2 w-[280px] lg:w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
                   type='text'
                   name='email'
-                  id=''
+                  id='emial'
                   placeholder='Enter your Email'
                   onChange={handleUserInputs}
                 />
@@ -109,7 +109,7 @@ function Index() {
                   className='border-2 w-[280px] lg:w-[326px] h-[46px] rounded-[8px] outline-none pl-2 text-[12px] mb-5'
                   type='password'
                   name='password'
-                  id=''
+                  id='password'
                   placeholder='Enter your Password'
                   onChange={handleUserInputs}
                 />
