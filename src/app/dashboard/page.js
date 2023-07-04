@@ -5,20 +5,23 @@ import Plant from '../../../assets/png/plant.jpeg'
 import { makeApiCall } from '../../../lib/api'
 import { API_BASE_URL, IMAGE_BASE_URL } from '../../../constant'
 import Cookies from 'js-cookie'
+import toaster from '@/helpers/toaster'
 
 function Index() {
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  const token = Cookies.get('user_token')
 
   const getProducts = async () => {
     // e.preventDefault()
+    const token = Cookies.get('user_token')
+
+    if (!token) return null
     setIsLoading(true)
     const response = await makeApiCall('/getProduct')
-    // console.log(response)
+    console.log(response)
     setProducts(response)
     setIsLoading(false)
-    console.log(response)
+
     // if (response.user.verification_status === 'NO') {
     //   toaster('Account Pending Verification', 'success')
     //   setIsLoading(false)
@@ -39,12 +42,8 @@ function Index() {
   }
 
   useEffect(() => {
-    if (token) {
-      getProducts()
-    } else {
-      return
-    }
-  }, [token])
+    getProducts()
+  }, [])
   // console.log(IMAGE_BASE_URL)
   // console.log(products[1].image)
   return (
