@@ -4,10 +4,13 @@ import DashboardLayout from '@/components/dashboard/dashboardLayout'
 import Plant from '../../../assets/png/plant.jpeg'
 import { makeApiCall } from '../../../lib/api'
 import { API_BASE_URL, IMAGE_BASE_URL } from '../../../constant'
+import Cookies from 'js-cookie'
 
 function Index() {
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const token = Cookies.get('user_token')
+
   const getProducts = async () => {
     // e.preventDefault()
     setIsLoading(true)
@@ -28,16 +31,20 @@ function Index() {
     //   router.push('/dashboard')
     // }
 
-    // if (response.status === 400 || 401) {
-    //   toaster(`${response?.error?.email[0]}`, 'error')
-    //   toaster(`${response?.error?.phone[0]}`, 'error')
-    //   // console.log(response.response.data.email)
-    // }
+    if (response.status === 400 || 401) {
+      toaster(`${response?.error}`, 'error')
+      toaster(`${response?.error}`, 'error')
+      // console.log(response.response.data.email)
+    }
   }
 
   useEffect(() => {
-    getProducts()
-  }, [])
+    if (token) {
+      getProducts()
+    } else {
+      return
+    }
+  }, [token])
   // console.log(IMAGE_BASE_URL)
   // console.log(products[1].image)
   return (
