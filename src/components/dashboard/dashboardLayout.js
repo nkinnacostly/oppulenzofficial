@@ -41,7 +41,7 @@ function DashboardLayout({ children }) {
       index: 2,
       icon: <SettingsIcon />,
       name: `News flash`,
-      path: `/dashboard/profile`,
+      path: `/dashboard/news`,
     },
 
     // {
@@ -51,6 +51,12 @@ function DashboardLayout({ children }) {
     //   path: `/dashboard/profile`,
     // },
 
+    {
+      index: 3,
+      icon: <SettingsIcon />,
+      name: `Profile`,
+      path: `/dashboard/profile`,
+    },
     {
       index: 3,
       icon: <SettingsIcon />,
