@@ -1,10 +1,9 @@
 import React from 'react'
 import Cookies from 'js-cookie'
+import { useUser } from '@/helpers/getUser'
 
-function Profile() {
-  const userDetails = JSON.parse(Cookies.get('user_details'))
-
-  console.log(userDetails, 'Dets')
+function ProfileSection() {
+  const user = useUser() || null
 
   return (
     <div className='flex flex-col w-full h-full p-5 bg-white '>
@@ -13,15 +12,15 @@ function Profile() {
       </div>
       <div className='grid grid-cols-2 mt-4 place-content-center'>
         <p>Full Name:</p>
-        <p>{` ${userDetails?.user?.name}`}</p>
+        <p>{` ${user?.user?.name}`}</p>
       </div>
       <div className='grid grid-cols-2 mt-4'>
         <p>Email:</p>
-        <p>{`${userDetails?.user?.email}`}</p>
+        <p>{`${user?.user?.email}`}</p>
       </div>
       <div className='grid grid-cols-2 mt-4'>
         <p>Phone:</p>
-        <p>{` ${userDetails?.user?.phone}`}</p>
+        <p>{` ${user?.user?.phone}`}</p>
       </div>
       <div className='grid grid-cols-2 mt-4'>
         <p>Bank Account Name:</p>
@@ -39,4 +38,4 @@ function Profile() {
   )
 }
 
-export default Profile
+export default ProfileSection

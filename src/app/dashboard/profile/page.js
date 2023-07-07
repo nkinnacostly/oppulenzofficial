@@ -1,12 +1,12 @@
 'use client'
+import React, { useState } from 'react'
 import DashboardLayout from '@/components/dashboard/dashboardLayout'
-import Profile from '@/components/dashboard/profile/profile'
-import React from 'react'
+import ProfileSection from '@/components/dashboard/profile/profile'
 
 function Index() {
   return (
     <DashboardLayout>
-      <Profile />
+      <ProfileSection />
     </DashboardLayout>
   )
 }

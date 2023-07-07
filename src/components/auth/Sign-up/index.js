@@ -52,7 +52,7 @@ function SignUp() {
       // console.log(response.response.data.email)
     }
   }
-  console.log(signupData, ' This is data')
+  // console.log(signupData, ' This is data')
   return (
     <div className='w-full h-[100vh] '>
       <div className='grid justify-center w-full h-full grid-cols-1 lg:grid-cols-2 '>
