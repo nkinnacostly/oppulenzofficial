@@ -12,6 +12,8 @@ import { ReactComponent as SearchIcon } from '../../../assets/svg/search.svg'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { usePathname } from 'next/navigation'
+import MobNav from '../mobNav/mobNav'
+import Cookies from 'js-cookie'
 
 function DashboardLayout({ children }) {
   const [isActive, setIsActive] = useState('dashboard')
@@ -19,11 +21,15 @@ function DashboardLayout({ children }) {
   const pathname = usePathname()
   // console.log(pathname, 'URL')
 
-  const handleClick = (index, path) => {
-    setIsActive(index)
-    router.push(path)
+  // const handleClick = (index, path) => {
+  //   setIsActive(index)
+  //   router.push(path)
+  // }
+  const handleLogout = () => {
+    Cookies.remove('user_token')
+    Cookies.remove('user_details')
+    router.push('/')
   }
-
   const sideBarLinks = [
     {
       index: 0,
@@ -91,7 +97,7 @@ function DashboardLayout({ children }) {
   ]
   return (
     <div className='w-full h-[100vh] flex relative bg-[#F5F4F6]'>
-      <div className=' h-full w-[220px] fixed top-0 left-0 bottom-0 flex  flex-col p-3 bg-[#FFFFFF] rounded-b-xl border-r-2'>
+      <div className='hidden w-0  h-full lg:w-[220px] fixed top-0 left-0 bottom-0 lg:flex  flex-col p-3 bg-[#FFFFFF] rounded-b-xl border-r-2'>
         <div className='flex items-center justify-center'>
           <Image src={Logo} alt='' height={50} width={50} />
         </div>
@@ -116,17 +122,22 @@ function DashboardLayout({ children }) {
             </li>
           ))}
         </ul>
-        <div></div>
+        <div
+          className='pl-5 cursor-pointer font-bold mb-5 fixed bottom-0'
+          onClick={handleLogout}
+        >
+          Logout
+        </div>
       </div>
-      <div className='w-[calc(100%-220px)] fixed left-[220px] top-0 h-full '>
+      <div className='w-full lg:w-[calc(100%-220px)] lg:fixed left-[220px] top-0 h-full '>
         <div className='h-[66px] flex justify-between items-center p-3 bg-white rounded-r-xl'>
           <div>
             <div className='relative'>
-              <SearchIcon className='absolute top-3 left-2' />
+              <SearchIcon className='absolute top-5 left-2' />
               <input
                 type='text'
                 placeholder='Search or type'
-                className='w-[358px]  bg-[#F5F4F6] h-[40px] rounded-[8px] pl-7
+                className='w-[250px] lg:w-[358px]  bg-[#F5F4F6] h-[40px] rounded-[8px] pl-7
                  font-[Manrope] text-[14px] outline-none'
               />
             </div>
@@ -147,6 +158,7 @@ function DashboardLayout({ children }) {
         <div className='h-[calc(100%-66px)]  bg-[#F5F4F6] p-4 overflow-scroll'>
           {children}
         </div>
+        <MobNav />
       </div>
     </div>
   )

@@ -33,13 +33,13 @@ function Index() {
     // e.preventDefault()
     setIsLoading(true)
     const response = await makeApiCall('/login', 'POST', signupData)
-    // console.log(response)
+    console.log(response)
 
-    if (response.user.verification_status === 'NO') {
+    if (response?.user?.verification_status === 'NO') {
       toaster('Account Pending Verification', 'success')
       setIsLoading(false)
       return
-    } else {
+    } else if (response?.message === 'Successfully logged in') {
       toaster('Login Successful', 'success')
       Cookies.set('user_token', response.token)
       Cookies.set('user_details', JSON.stringify(response))
@@ -47,7 +47,8 @@ function Index() {
       router.push('/dashboard')
     }
 
-    if (response.status === 401) {
+    if (response.error === 'Invalid credentials') {
+      setIsLoading(false)
       toaster(`${response?.error}`, 'error')
       toaster(`${response?.error}`, 'error')
       // console.log(response.response.data.email)

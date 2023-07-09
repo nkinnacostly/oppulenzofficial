@@ -63,17 +63,17 @@ function Index() {
           <h1 className='mt-8 mb-8 text-xl font-semibold uppercase'>
             Products
           </h1>
-          <div className='h-[calc(100%-350px)]  w-full overflow-scroll '>
+          <div className='  w-full '>
             {isLoading ? (
               <div className='flex items-center justify-center h-full'>
                 <span class='loader'></span>
               </div>
             ) : (
-              <div className='grid grid-cols-3 gap-4 '>
+              <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 '>
                 {products?.slice(0, 3)?.map((prod, index) => (
                   <div
                     key={index}
-                    className='w-[300px] h-[360px] cursor-pointer'
+                    className='w-full lg:w-[300px] h-[360px] cursor-pointer'
                   >
                     <div
                       className=''

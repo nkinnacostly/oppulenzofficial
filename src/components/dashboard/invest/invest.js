@@ -39,7 +39,7 @@ function Invest() {
             <span class='loader'></span>
           </div>
         ) : (
-          <div className='grid grid-cols-3 gap-4 '>
+          <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 '>
             <Modal
               isOpen={isModalOpen}
               onClose={handleCloseModal}
@@ -48,7 +48,7 @@ function Invest() {
             {products?.map((prod, index) => (
               <div
                 key={index}
-                className='w-[300px] h-[360px] cursor-pointer'
+                className=' w-full lg:w-[300px] h-[360px] cursor-pointer'
                 onClick={() => handleOpenModal(prod)}
               >
                 <div
