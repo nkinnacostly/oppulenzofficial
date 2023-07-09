@@ -152,7 +152,15 @@ function DashboardLayout({ children }) {
                 className='text-[#5F6165]'
               />
             </div>
-            <div className='bg-black w-[40px] h-[40px] rounded-full'></div>
+            <div className=' w-[40px] h-[40px] rounded-full'>
+              <Image
+                src={Logo}
+                height={100}
+                width={100}
+                alt=''
+                className='w-full h-full rounded-full'
+              />
+            </div>
           </div>
         </div>
         <div className='h-[calc(100%-66px)]  bg-[#F5F4F6] p-4 overflow-scroll'>

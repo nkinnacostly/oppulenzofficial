@@ -34,7 +34,7 @@ function Index() {
     //   router.push('/dashboard')
     // }
 
-    if (response.status === 400 || 401) {
+    if (response.status === 401) {
       toaster(`${response?.error}`, 'error')
       toaster(`${response?.error}`, 'error')
       // console.log(response.response.data.email)
@@ -55,9 +55,9 @@ function Index() {
               className='w-full h-full'
               src='https://www.youtube.com/embed/yOJ4WdUxSyo'
               title='Fivio Foreign - God Did Freestyle (Official Video)'
-              frameborder='0'
+              frameBorder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
           <h1 className='mt-8 mb-8 text-xl font-semibold uppercase'>
