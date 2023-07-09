@@ -56,7 +56,7 @@ const Modal = ({ isOpen, onClose, data }) => {
           variants={modalBackgroundVariants}
         >
           <motion.div
-            className='p-4 bg-white rounded shadow-md w-[60%] h-full overflow-scroll'
+            className=' w-full p-4 bg-white rounded shadow-md lg:w-[60%] h-[85%] lg:h-full overflow-scroll'
             ref={modalRef}
             initial='hidden'
             animate='visible'

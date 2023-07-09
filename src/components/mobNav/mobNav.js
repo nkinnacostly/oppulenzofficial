@@ -78,7 +78,7 @@ function MobNav() {
   ]
 
   return (
-    <div className='w-full lg:hidden fixed bottom-0 z-50 border-2 h-[55px] bg-white'>
+    <div className='w-full lg:hidden fixed bottom-0 z-50 border-2 h-[50px] bg-white'>
       <ul className='w-full mt-7 flex justify-around items-center'>
         {sideBarLinks.map((links, index) => (
           <li className='' key={index}>

@@ -70,7 +70,7 @@ function WalletAdress({ setShowWallet, data }) {
 
         <p className='font-bold mb-3'>WALLET ADDRESS:</p>
         {data.product_name === 'Precious metal' ? (
-          <h3 className='font-bold font-[Manrope] text-[20px]'>
+          <h3 className='font-bold font-[Manrope] text-[20px] w-[60%]'>
             Go2Ra4fcozPM2JXzaNoaLPkmAw6WLwqG47QiDK7XdQiU
           </h3>
         ) : (
@@ -78,7 +78,7 @@ function WalletAdress({ setShowWallet, data }) {
             0x3a3a44b8ff1f2e13bbdff2ddfa54d089737a19d3
           </h3>
         )}
-        <div className='App mt-4 w-full'>
+        <div className='App mt-4 w-full flex items-center justify-center'>
           <ImageUploading
             multiple
             value={images}
@@ -96,7 +96,7 @@ function WalletAdress({ setShowWallet, data }) {
               dragProps,
             }) => (
               // write your building UI
-              <div className='upload__image-wrapper border-2 border-dotted rounded-lg w-full p-3  flex items-center justify-center'>
+              <div className='upload__image-wrapper border-2 border-dotted rounded-lg w-[80%] lg:w-full p-3  flex items-center justify-center'>
                 {images.length > 0 ? (
                   <>
                     <div className='flex items-center justify-center '>
