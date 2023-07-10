@@ -2,60 +2,52 @@ import React from 'react'
 
 function Assets() {
   return (
-    <div className='flex items-center justify-center'>
+    <div className='flex items-center justify-center flex-col'>
+      <h1 className='font-bold text-[18px mb-3]'>About Us</h1>
       <p>
-        Twitter is a popular social media platform that enables users to share
-        and discover information in real-time. Launched in 2006, Twitter has
-        grown into a global phenomenon with millions of active users. The
-        platform allows individuals, businesses, organizations, and even public
-        figures to connect with their audience, express their thoughts, and
-        engage in conversations using short messages known as tweets. One of the
-        defining features of Twitter is its character limit. Initially, tweets
-        were restricted to 140 characters, but in 2017, the limit was doubled to
-        280 characters, providing users with more space to express themselves.
-        This concise format encourages users to be succinct and share their
-        thoughts in a concise and impactful manner. Twitter has become a
-        powerful tool for communication, breaking news, and sharing opinions.
-        From major political events to entertainment updates, Twitter has become
-        the go-to platform for real-time updates and discussions. The platforms
-        real-time nature allows users to follow live events, join conversations
-        using hashtags, and interact with others around the world. Hashtags play
-        a crucial role in organizing and categorizing content on Twitter. By
-        using a hashtag (#) followed by a keyword or phrase, users can easily
-        search for and participate in discussions related to a specific topic.
-        Hashtags have been instrumental in facilitating social movements,
-        raising awareness about important issues, and promoting campaigns. In
-        addition to tweets, Twitter offers various features to enhance the user
-        experience. Users can follow other accounts to see their tweets in their
-        feed, retweet (share) tweets they find interesting with their own
-        followers, and like tweets to show appreciation. Direct messages (DMs)
-        enable private conversations between users, fostering more personal
-        interactions. Twitter has also been widely adopted by businesses and
-        brands. It provides a platform for companies to engage with their
-        customers, promote their products or services, and receive feedback.
-        Many businesses use Twitter to provide customer support, address
-        concerns, and build a strong online presence. Twitters impact goes
-        beyond individual users and businesses. It has become an integral part
-        of modern journalism, with journalists using the platform to gather
-        information, share breaking news, and connect with their audience. Many
-        public figures, including politicians, celebrities, and influencers,
-        utilize Twitter to engage with their fan base, share updates, and
-        express their opinions. The platform has not been without its
-        challenges. Like any social media platform, Twitter has faced issues
-        such as trolling, harassment, and the spread of misinformation. However,
-        the company has implemented various measures to combat these issues,
-        including stricter rules, content moderation, and reporting mechanisms.
-        Over the years, Twitter has evolved and introduced new features to cater
-        to user demands. These include features like live video streaming,
-        fleets (temporary tweets), and Spaces (audio-based chat rooms). These
-        additions have expanded the platforms capabilities, providing users with
-        more ways to engage and express themselves. In summary, Twitter is a
-        powerful social media platform that has revolutionized the way we
-        communicate and share information. Its concise format, real-time
-        updates, and hashtag-based discussions make it an influential platform
-        for individuals, businesses, and public figures alike. With its
-        ever-growing user base and continuous innovation, Twitter continues to
-        shape the digital landscape and connect people around the world.
+        About Us At OpulenzOfficial, we believe that everyone deserves access to
+        high-quality investment advice. That why we offer a variety of
+        investment products and services to help our clients reach their
+        financial goals, regardless of their investment experience or budget.
+        Our team of experienced investment professionals has a deep
+        understanding of the financial markets and a proven track record of
+        success. We work closely with each client to understand their individual
+        needs and goals, and we develop customized investment strategies that
+        are designed to help them achieve those goals. We also offer a wide
+        range of educational resources to help our clients learn more about
+        investing. Our website features a wealth of information on a variety of
+        investment topics, and we also offer regular webinars and workshops. We
+        believe that education is the key to financial success, and we are
+        committed to providing our clients with the resources they need to make
+        informed investment decisions.
+      </p>
+      <h1 className='font-bold text-[18px mb-3] mt-3'>Our Values</h1>
+      <p>
+        At OpulenzOfficial, we believe in the following values: Transparency: We
+        believe that our clients deserve to know how their money is being
+        invested. We provide clear and concise investment information, and we
+        are always available to answer our clients questions. Honesty: We
+        believe in being honest with our clients about their investment risks
+        and potential returns. We do not make any guarantees about investment
+        performance, and we always disclose any conflicts of interest.
+        Integrity: We believe in acting with integrity in all of our dealings
+        with our clients. We are committed to providing our clients with the
+        highest quality of service, and we always act in their best interests.
+        Our Services We offer a variety of investment products and services,
+        including: Investment management: We manage a variety of investment
+        portfolios for our clients, including individual retirement accounts
+        (IRAs), 401(k) plans, and brokerage accounts. Financial planning: We
+        help our clients develop financial plans to reach their long-term goals,
+        such as retirement, college savings, and homeownership. Tax planning: We
+        help our clients minimize their tax liability and maximize their
+        investment returns. Education and resources: We offer a variety of
+        educational resources to help our clients learn more about investing.
+        Our website features a wealth of information on a variety of investment
+        topics, and we also offer regular webinars and workshops. Contact Us If
+        you are interested in learning more about our investment firm, please
+        contact us today. We would be happy to answer any of your questions and
+        schedule a meeting to discuss your financial goals. We look forward to
+        hearing from you!
       </p>
     </div>
   )
