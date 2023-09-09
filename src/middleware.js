@@ -1,10 +1,21 @@
-import { NextResponse } from 'next/server'
+const { NextRequest, NextFetchEvent, NextResponse } = require("next/server");
 
-export default function Middleware(req) {
-  let verify = req.cookies.get('user_token')
-  let url = req.url
-  const { origin } = req.nextUrl
-  if (!verify && url.includes('/dashboard')) {
-    return NextResponse.redirect(`${origin}/`)
+const RESTRICTED_COUNTRIES = ["PH", "US"];
+
+async function middleware(request, _next) {
+  const res = NextResponse.next();
+  const country = request.geo?.country ?? "";
+
+  if (RESTRICTED_COUNTRIES.includes(country)) {
+    return NextResponse.rewrite(new URL("/restricted", request.url));
   }
+
+  return res;
+  console.log("====================================");
+  console.log(res, "rest abeg");
+  console.log("====================================");
 }
+
+module.exports = {
+  middleware,
+};
