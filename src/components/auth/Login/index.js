@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Password from "../Password";
 import SmallLoader from "@/helpers/Spinner";
+import axios from "axios";
 import { makeApiCall } from "../../../../lib/api";
 import toaster from "@/helpers/toaster";
 import useDeviceDetect from "@/helpers/userDevice";
@@ -18,20 +19,24 @@ import { useRouter } from "next/navigation";
 
 const ip = Cookies.get("ip");
 const userAgent = Cookies.get("userAgent");
-export const getServerSideProps = ({ query }) => ({
-  props: query,
-});
+// export const getServerSideProps = ({ query }) => ({
+//   props: query,
+// });
 function Index() {
   const router = useRouter();
+  const [country, setCountry] = useState(null);
+
   const [signupData, setSignupData] = useState({
     email: "",
     password: "",
     userAgent: userAgent,
     ip: ip,
-    country: "USA",
+    country: country,
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
+  // const [country, setCountry] = useState(null);
+
   const { isMobile } = useDeviceDetect();
   const handleUserInputs = (e) => {
     const name = e.target.name;
@@ -78,6 +83,38 @@ function Index() {
     // };
   }, []);
 
+  useEffect(() => {
+    // Check if the geolocation API is available in the user's browser
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const { latitude, longitude } = position.coords;
+
+        try {
+          // Make a request to the OpenCage Geocoding API to get country information
+          const response = await axios.get(
+            `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=0ec3c1011635487c9d8ec751d0d9c412`
+          );
+
+          // Extract the country name from the API response
+          const countryName = response.data.results[0]?.components?.country;
+
+          if (countryName) {
+            setCountry(countryName);
+          } else {
+            setCountry("Country not found");
+          }
+        } catch (error) {
+          console.error("Error fetching country:", error);
+          setCountry("Error fetching country");
+        }
+      });
+    } else {
+      setCountry("Geolocation not available");
+    }
+  }, []);
+  console.log("====================================");
+  console.log(country, "This is country");
+  console.log("====================================");
   return (
     <div className="w-full h-[100vh] flex flex-col items-center justify-center this-one">
       <div className="w-[400px] md:w-[380px] lg:w-[440px] h-[338px] bg-white p-8">
