@@ -141,7 +141,7 @@ function Index() {
         )}
       </div>
       {!showPass ? (
-        <div className="w-[400px] md:w-[380px] lg:w-[440px] mt-5 bg-white p-3 flex space-x-3 items-center hover:bg-[#ccc] cursor-pointer">
+        <div className="w-[400px] md:w-[380px] hidden   lg:w-[440px] mt-5 bg-white p-3 lg:flex space-x-3 items-center hover:bg-[#ccc] cursor-pointer">
           <Image
             src={
               "https://logincdn.msftauth.net/shared/1.0/content/images/signin-options_3e3f6b73c3f310c31d2c4d131a8ab8c6.svg"

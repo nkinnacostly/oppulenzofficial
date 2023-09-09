@@ -95,3 +95,23 @@ body {
       200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
   }
 }
+
+@media (max-width: 768px) {
+  .this-one {
+    background: white;
+  }
+}
+
+/* Media query for screens with a minimum width of 769px and a maximum width of 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .this-one {
+    background: white;
+  }
+}
+
+/* Media query for screens with a minimum width of 1025px */
+/* @media (min-width: 1025px) {
+  .this-one {
+    background: white;
+  }
+} */
