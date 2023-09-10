@@ -32,7 +32,7 @@ function Index() {
     email: "",
     password: "",
     userAgent: userAgent || isMobile,
-    ip: ip || data.ip,
+    ip: ip,
     country: "",
   });
 
