@@ -24,20 +24,20 @@ const userAgent = Cookies.get("userAgent");
 // });
 function Index() {
   const router = useRouter();
-  const [country, setCountry] = useState(null);
-
+  const [country, setCountry] = useState("");
+  const { isMobile } = useDeviceDetect();
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPass, setShowPass] = useState(false);
   const [signupData, setSignupData] = useState({
     email: "",
     password: "",
-    userAgent: userAgent,
-    ip: ip,
-    country: country,
+    userAgent: userAgent || isMobile,
+    ip: ip || data.ip,
+    country: "",
   });
-  const [isLoading, setIsLoading] = useState(false);
-  const [showPass, setShowPass] = useState(false);
+
   // const [country, setCountry] = useState(null);
 
-  const { isMobile } = useDeviceDetect();
   const handleUserInputs = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -57,11 +57,6 @@ function Index() {
   // };
   const simulateLoading = () => {
     setShowPass(true);
-
-    // setTimeout(() => {
-    //   setIsLoading(false);
-    //   // alert("omohh");
-    // }, 20000); // 10 seconds in milliseconds
   };
   const handleSubmit = async () => {
     // e.preventDefault()
@@ -77,10 +72,6 @@ function Index() {
     fetch("https://api.ipify.org?format=json")
       .then((response) => response.json())
       .then((data) => Cookies.set("ip", data.ip));
-
-    // return () => {
-    //   null;
-    // };
   }, []);
 
   useEffect(() => {
@@ -100,6 +91,10 @@ function Index() {
 
           if (countryName) {
             setCountry(countryName);
+            setSignupData({
+              ...signupData,
+              country: countryName,
+            });
           } else {
             setCountry("Country not found");
           }
