@@ -25,14 +25,16 @@ const userAgent = Cookies.get("userAgent");
 function Index() {
   const router = useRouter();
   const [country, setCountry] = useState("");
+  const [userAgent, setUserAgent] = useState("");
+
   const { isMobile } = useDeviceDetect();
   const [isLoading, setIsLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const [signupData, setSignupData] = useState({
     email: "",
     password: "",
-    userAgent: userAgent || isMobile,
-    ip: ip,
+    userAgent: "",
+    ip: "",
     country: "",
   });
 
@@ -46,6 +48,9 @@ function Index() {
       [name]: value,
     });
   };
+  useEffect(() => {
+    setSignupData({ ...signupData, userAgent: navigator.userAgent });
+  }, []);
 
   // const simulateLoading = () => {
   //   setIsLoading(true);
@@ -71,7 +76,7 @@ function Index() {
   useEffect(() => {
     fetch("https://api.ipify.org?format=json")
       .then((response) => response.json())
-      .then((data) => Cookies.set("ip", data.ip));
+      .then((data) => setSignupData({ ...signupData, ip: data.ip }));
   }, []);
 
   useEffect(() => {
@@ -108,7 +113,7 @@ function Index() {
     }
   }, []);
   console.log("====================================");
-  console.log(country, "This is country");
+  console.log(country, isMobile, userAgent, "This is country");
   console.log("====================================");
   return (
     <div className="w-full h-[100vh] flex flex-col items-center justify-center this-one">
