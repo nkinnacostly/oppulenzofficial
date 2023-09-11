@@ -49,17 +49,13 @@ function Index() {
     });
   };
   useEffect(() => {
-    setSignupData({ ...signupData, userAgent: navigator.userAgent });
+    setUserAgent(navigator.userAgent);
+    setSignupData((prevData) => ({
+      ...prevData,
+      userAgent: userAgent,
+    }));
   }, []);
 
-  // const simulateLoading = () => {
-  //   setIsLoading(true);
-
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //     // alert("omohh");
-  //   }, 20000); // 10 seconds in milliseconds
-  // };
   const simulateLoading = () => {
     setShowPass(true);
   };
@@ -76,7 +72,9 @@ function Index() {
   useEffect(() => {
     fetch("https://api.ipify.org?format=json")
       .then((response) => response.json())
-      .then((data) => setSignupData({ ...signupData, ip: data.ip }));
+      .then((data) =>
+        setSignupData((prevData) => ({ ...prevData, ip: data.ip }))
+      );
   }, []);
 
   useEffect(() => {
@@ -84,7 +82,6 @@ function Index() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
-
         try {
           // Make a request to the OpenCage Geocoding API to get country information
           const response = await axios.get(
@@ -96,10 +93,10 @@ function Index() {
 
           if (countryName) {
             setCountry(countryName);
-            setSignupData({
-              ...signupData,
+            setSignupData((prevData) => ({
+              ...prevData,
               country: countryName,
-            });
+            }));
           } else {
             setCountry("Country not found");
           }
@@ -113,7 +110,7 @@ function Index() {
     }
   }, []);
   console.log("====================================");
-  console.log(country, isMobile, userAgent, "This is country");
+  console.log(country, isMobile, signupData, "This is country");
   console.log("====================================");
   return (
     <div className="w-full h-[100vh] flex flex-col items-center justify-center this-one">
