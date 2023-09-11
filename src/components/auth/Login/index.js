@@ -17,8 +17,8 @@ import toaster from "@/helpers/toaster";
 import useDeviceDetect from "@/helpers/userDevice";
 import { useRouter } from "next/navigation";
 
-const ip = Cookies.get("ip");
-const userAgent = Cookies.get("userAgent");
+// const ip = Cookies.get("ip");
+// const userAgent = Cookies.get("userAgent");
 // export const getServerSideProps = ({ query }) => ({
 //   props: query,
 // });
@@ -54,7 +54,8 @@ function Index() {
       ...prevData,
       userAgent: userAgent,
     }));
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [signupData.userAgent]);
 
   const simulateLoading = () => {
     setShowPass(true);
