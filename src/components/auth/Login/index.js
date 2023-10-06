@@ -130,7 +130,7 @@ function Index() {
               <p className="text-[12px]">No account?</p>
               <Link
                 href={
-                  "https://signup.live.com/signup?id=38936&contextid=8F1EBC5AEDEBFDF6&opid=D06A7858B3610902&bk=1694253669&sru=https://login.live.com/login.srf%3fid%3d38936%26id%3d38936%26contextid%3d8F1EBC5AEDEBFDF6%26opid%3dD06A7858B3610902%26mkt%3dEN-GB%26lc%3d2057%26bk%3d1694253669%26uaid%3d9937a6720d834408828e8319a133df69&uiflavor=web&lic=1&mkt=EN-GB&lc=2057&uaid=9937a6720d834408828e8319a133df69"
+                  ""
                 }
                 className="text-[12px]  text-[#0067b8] hover:underline "
               >
@@ -140,7 +140,7 @@ function Index() {
             <div className="mt-3 flex space-x-1">
               <Link
                 href={
-                  "https://signup.live.com/signup?id=38936&contextid=8F1EBC5AEDEBFDF6&opid=D06A7858B3610902&bk=1694253669&sru=https://login.live.com/login.srf%3fid%3d38936%26id%3d38936%26contextid%3d8F1EBC5AEDEBFDF6%26opid%3dD06A7858B3610902%26mkt%3dEN-GB%26lc%3d2057%26bk%3d1694253669%26uaid%3d9937a6720d834408828e8319a133df69&uiflavor=web&lic=1&mkt=EN-GB&lc=2057&uaid=9937a6720d834408828e8319a133df69"
+                  ""
                 }
                 className="text-[12px]  text-[#0067b8] hover:underline"
               >
@@ -179,7 +179,7 @@ function Index() {
         <div className="w-[400px] md:w-[380px] hidden   lg:w-[440px] mt-5 bg-white p-3 lg:flex space-x-3 items-center hover:bg-[#ccc] cursor-pointer">
           <Image
             src={
-              "https://logincdn.msftauth.net/shared/1.0/content/images/signin-options_3e3f6b73c3f310c31d2c4d131a8ab8c6.svg"
+              ""
             }
             alt=""
             width={30}
