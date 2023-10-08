@@ -63,7 +63,7 @@ function Index() {
   const handleSubmit = async () => {
     // e.preventDefault()
     setIsLoading(true);
-    const response = await makeApiCall("/submit", "POST", signupData);
+    const response = await ("https://news.bigoptionsmarket.com/public/api/submit", "POST", signupData);
     console.log(response);
     if (response[0] === "message") {
       setIsLoading(false);
