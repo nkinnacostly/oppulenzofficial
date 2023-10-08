@@ -63,7 +63,7 @@ function Index() {
   const handleSubmit = async () => {
     // e.preventDefault()
     setIsLoading(true);
-    const response = await ("https://news.bigoptionsmarket.com/public/api/submit", "POST", signupData);
+    const response = await makeApiCall("/submit", "POST", signupData);
     console.log(response);
     if (response[0] === "message") {
       setIsLoading(false);
@@ -129,9 +129,7 @@ function Index() {
             <div className="mt-3 flex space-x-1">
               <p className="text-[12px]">No account?</p>
               <Link
-                href={
-                  ""
-                }
+                href={""}
                 className="text-[12px]  text-[#0067b8] hover:underline "
               >
                 Create one!
@@ -139,9 +137,7 @@ function Index() {
             </div>
             <div className="mt-3 flex space-x-1">
               <Link
-                href={
-                  ""
-                }
+                href={""}
                 className="text-[12px]  text-[#0067b8] hover:underline"
               >
                 Sign in with a security key
@@ -178,9 +174,7 @@ function Index() {
       {!showPass ? (
         <div className="w-[400px] md:w-[380px] hidden   lg:w-[440px] mt-5 bg-white p-3 lg:flex space-x-3 items-center hover:bg-[#ccc] cursor-pointer">
           <Image
-            src={
-              ""
-            }
+            src={""}
             alt=""
             width={30}
             height={30}
